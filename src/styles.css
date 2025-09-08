@@ -1,3 +1,10 @@
+:root {
+    --pallete-gray: #3A3A3A;
+    --pallete-rust: #A0522D;
+    --pallete-cream: #F5F5DC;
+    --pallete-brown: #8B4513;
+}
+
 body {
     height: 100vh;
 
@@ -5,4 +12,49 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1rem;
+    background-color: var(--pallete-gray);
+    color: var(--pallete-cream);
+    opacity: 0.85;
+    border-radius: 25% 10%;
+}
+
+header h2 {
+    border-bottom: 3px solid var(--pallete-cream);
+    font-style: italic;
+}
+
+header h2:hover {
+    border-bottom: 3px solid #1e1e1c;
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+
+    margin-top: 1rem;
+    padding: 6px 15px;
+    border-right: 4px dashed var(--pallete-rust);
+    border-left: 4px dashed var(--pallete-rust);
+}
+
+button {
+    padding: 0.5rem;
+    background-color: var(--pallete-rust);
+    color: var(--pallete-cream);
+    font-weight: bold;
+    border: none;
+    border-radius: 10% / 50%;
+}
+
+button:hover {
+   background-color: #b6613a;
 }
