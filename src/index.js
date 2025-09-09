@@ -9,10 +9,23 @@ window.addEventListener("load", () => {
     home.generatePageContent().forEach(card => contentContainer.appendChild(card));
 });
 
-document.querySelector("#btn-home").addEventListener("click", () => {
-    contentContainer.replaceChildren(...home.generatePageContent());
-});
+document.querySelector("nav").addEventListener("click", (e) => {
+    let nodes= null;
+    let className = null;
 
-document.querySelector("#btn-menu").addEventListener("click", () => {
-    contentContainer.replaceChildren(...menu.generatePageContent());
+    switch (e.target.id) {
+        case "btn-home":
+            nodes = home.generatePageContent();
+            className = home.styleClassName;
+            break;
+        case "btn-menu":
+            nodes = menu.generatePageContent();
+            className = menu.styleClassName;
+            break;
+    }
+
+    if (nodes && className) {
+        contentContainer.replaceChildren(...nodes);
+        contentContainer.setAttribute("class", className);
+    }
 });

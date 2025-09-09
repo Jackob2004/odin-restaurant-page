@@ -1,5 +1,7 @@
 // module responsible for generating home page content
 
+const styleClassName = "content-home";
+
 /**
  *
  * @type {[{heading: string, content: string}]}
@@ -103,4 +105,4 @@ function generatePageContent() {
     return cards;
 }
 
-export {generatePageContent};
+export {generatePageContent, styleClassName};

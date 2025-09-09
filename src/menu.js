@@ -4,6 +4,8 @@ import burger3 from "/assets/burger3.jpg";
 import burger4 from "/assets/burger4.jpg";
 import burger5 from "/assets/burger5.jpg";
 
+const styleClassName = "content-home";
+
 /**
  * @type {Array<{imgPath: string, name: string, description: string, price: string}>}
  */
@@ -87,4 +89,4 @@ function generatePageContent() {
     return cards;
 }
 
-export {generatePageContent};
+export {generatePageContent, styleClassName};
