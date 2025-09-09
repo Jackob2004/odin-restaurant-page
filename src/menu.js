@@ -4,7 +4,7 @@ import burger3 from "/assets/burger3.jpg";
 import burger4 from "/assets/burger4.jpg";
 import burger5 from "/assets/burger5.jpg";
 
-const styleClassName = "content-home";
+const styleClassName = "content-menu";
 
 /**
  * @type {Array<{imgPath: string, name: string, description: string, price: string}>}
