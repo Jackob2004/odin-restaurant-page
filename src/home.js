@@ -70,6 +70,8 @@ function generateComplexCard(title, list) {
     const heading = document.createElement("h3");
     const unorderedList= document.createElement("ul");
 
+    heading.innerText = title;
+
     for (const item of list) {
         const listItem = document.createElement("li");
         listItem.innerText = item;
