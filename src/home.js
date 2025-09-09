@@ -98,6 +98,8 @@ function generatePageContent() {
 
     cards.push(generateComplexCard(complexCardData.heading, complexCardData.elements));
 
+    cards.forEach(card => card.classList.add("home-card"));
+
     return cards;
 }
 
