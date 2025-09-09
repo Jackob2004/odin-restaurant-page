@@ -71,6 +71,10 @@ function generateMenuCard(imgPath, name, description, price) {
     return card;
 }
 
+/**
+ *
+ * @returns {HTMLDivElement[]}
+ */
 function generatePageContent() {
     const cards = [];
 
