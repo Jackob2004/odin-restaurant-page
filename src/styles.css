@@ -6,7 +6,7 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
 
     background-image: url("/assets/background.jpg");
     background-size: cover;
@@ -57,4 +57,31 @@ button {
 
 button:hover {
    background-color: #b6613a;
+}
+
+#content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-auto-rows: minmax(200px, 1fr);
+    gap: 100px;
+
+    padding: 2rem;
+    text-align: center;
+}
+
+#content > div {
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    align-items: center;
+    gap: 1rem;
+
+    padding: 2rem;
+    background-color: var(--pallete-brown);
+    color: var(--pallete-cream);
+    opacity: 0.85;
+    border-radius: 10px 100px / 120px;
+}
+
+#content ul {
+    list-style: none;
 }
