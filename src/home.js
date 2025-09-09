@@ -39,3 +39,64 @@ const complexCardData = {
                "Sunday: 12:00 PM - 8:00 PM"]
 };
 
+/**
+ * generates card with heading and paragraph
+ * @param {string} title
+ * @param {string} text
+ * @returns {HTMLDivElement}
+ */
+function generateSimpleCard(title, text) {
+    const card = document.createElement("div");
+    const heading = document.createElement("h3");
+    const content = document.createElement("p");
+
+    heading.innerText = title;
+    content.innerText = text;
+
+    card.appendChild(heading);
+    card.appendChild(content);
+
+    return card;
+}
+
+/**
+ * generates card with heading and unordered list
+ * @param {string} title
+ * @param list {array.<string>}
+ * @returns {HTMLDivElement}
+ */
+function generateComplexCard(title, list) {
+    const card = document.createElement("div");
+    const heading = document.createElement("h3");
+    const unorderedList= document.createElement("ul");
+
+    for (const item of list) {
+        const listItem = document.createElement("li");
+        listItem.innerText = item;
+
+        unorderedList.appendChild(listItem);
+    }
+
+    card.appendChild(heading);
+    card.appendChild(unorderedList);
+
+    return card;
+}
+
+/**
+ *
+ * @returns {array.<HTMLDivElement>}
+ */
+function generatePageContent() {
+    const cards = [];
+
+    for (const data of simpleCardData) {
+        cards.push(generateSimpleCard(data.heading, data.content))
+    }
+
+    cards.push(generateComplexCard(complexCardData.heading, complexCardData.elements));
+
+    return cards;
+}
+
+export {generatePageContent};
