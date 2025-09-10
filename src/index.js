@@ -2,6 +2,7 @@ import "./reset.css";
 import "./styles.css";
 import * as home from "./home.js";
 import * as menu from "./menu.js";
+import * as contact from "./contact.js";
 
 const contentContainer = document.querySelector("#content");
 
@@ -23,6 +24,10 @@ function swapPageContent(event) {
         case "btn-menu":
             nodes = menu.generatePageContent();
             className = menu.styleClassName;
+            break;
+        case "btn-contact":
+            nodes = contact.generatePageContent();
+            className = contact.styleClassName;
             break;
     }
 

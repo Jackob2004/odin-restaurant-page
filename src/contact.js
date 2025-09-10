@@ -14,7 +14,7 @@ const contactData = {
 
 /**
  *
- * @returns {HTMLDivElement}
+ * @returns {HTMLDivElement[]}
  */
 function generatePageContent() {
     const card = document.createElement("div");
@@ -29,8 +29,9 @@ function generatePageContent() {
     email.textContent =  contactData.email;
 
     card.append(heading, desc, phone, email);
+    card.setAttribute("class", "contact-card");
 
-    return card;
+    return [card];
 }
 
 export {generatePageContent, styleClassName};
