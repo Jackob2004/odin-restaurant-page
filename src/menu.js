@@ -66,6 +66,8 @@ function generateMenuCard(imgPath, name, description, price) {
     heading.textContent = name;
     desc.textContent = description;
     priceTag.textContent = price;
+    priceTag.setAttribute("class", "price-tag");
+    desc.setAttribute("class", "description");
 
     imgWrapper.appendChild(img);
     contentWrapper.append(heading, desc, priceTag);
