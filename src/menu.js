@@ -7,7 +7,15 @@ import burger5 from "/assets/burger5.jpg";
 const styleClassName = "content-menu";
 
 /**
- * @type {Array<{imgPath: string, name: string, description: string, price: string}>}
+ * @typedef {Object} ManuCard
+ * @property {string} imgPath
+ * @property {string} name
+ * @property {string} description
+ * @property {number} price
+ */
+
+/**
+ * @type Array<ManuCard>
  */
 const menuCardsData = [
     {
@@ -15,43 +23,40 @@ const menuCardsData = [
         name: "The Classic Celestial",
         description: "The one that started it all. Double beef, cheese, lettuce, tomato, \
                       onion, and our signature sauce",
-        price: "27$"
+        price: 27
     },
     {
         imgPath: burger2,
         name: "The Big Bang Blue",
         description: "A flavor explosion with tangy blue cheese, crispy bacon, and caramelized onions.",
-        price: "29$"
+        price: 29
     },
     {
         imgPath: burger3,
         name: "The Apollo Eleven",
         description: "Our flagship: eleven ounces of prime beef, smoked cheddar, onion rings, and BBQ sauce.",
-        price: "35$"
+        price: 35
     },
     {
         imgPath: burger4,
         name: "The Martian",
         description: "VEGGIE Our famous house-made beet & black bean patty with avocado and spicy mayo.",
-        price: "20$"
+        price: 20
     },
     {
         imgPath: burger5,
         name: "The Nebula",
         description: "A swirl of flavors with Swiss cheese, sautéed mushrooms, and garlic aioli.",
-        price: "22$"
+        price: 22
     },
 ];
 
 /**
  *
- * @param {string} imgPath
- * @param {string} name
- * @param {string} description
- * @param {string} price
+ * @param {ManuCard} cardData
  * @returns {HTMLDivElement}
  */
-function generateMenuCard(imgPath, name, description, price) {
+function generateMenuCard(cardData) {
     const card = document.createElement("div");
     const imgWrapper = document.createElement("div");
     const img = document.createElement("img");
@@ -62,10 +67,10 @@ function generateMenuCard(imgPath, name, description, price) {
     const desc= document.createElement("p");
     const priceTag = document.createElement("p");
 
-    img.src = imgPath;
-    heading.textContent = name;
-    desc.textContent = description;
-    priceTag.textContent = price;
+    img.src = cardData.imgPath;
+    heading.textContent = cardData.name;
+    desc.textContent = cardData.description;
+    priceTag.textContent = cardData.price + "$";
     priceTag.setAttribute("class", "price-tag");
     desc.setAttribute("class", "description");
 
@@ -85,7 +90,7 @@ function generatePageContent() {
     const cards = [];
 
     for (const data of menuCardsData) {
-        cards.push(generateMenuCard(data.imgPath, data.name, data.description, data.price));
+        cards.push(generateMenuCard(data));
     }
 
     cards.forEach(card => card.classList.add("menu-card"));

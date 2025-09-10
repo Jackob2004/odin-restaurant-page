@@ -1,10 +1,20 @@
-// module responsible for generating home page content
-
 const styleClassName = "content-home";
 
 /**
+ * @typedef {Object} SimpleCard
+ * @property {string} heading
+ * @property {string} content
+ */
+
+/**
+ * @typedef {Object} ComplexCard
+ * @property {string} heading
+ * @property {array<string>} elements
+ */
+
+/**
  *
- * @type {[{heading: string, content: string}]}
+ * @type Array<SimpleCard>
  */
 const simpleCardData = [
     {
@@ -33,7 +43,7 @@ const simpleCardData = [
 
 /**
  * representing heading and list items
- * @type {{heading: string, elements: string[]}}
+ * @type ComplexCard
  */
 const complexCardData = {
     heading: "Hours",
@@ -43,17 +53,16 @@ const complexCardData = {
 
 /**
  * generates card with heading and paragraph
- * @param {string} title
- * @param {string} text
+ * @param {SimpleCard} cardData
  * @returns {HTMLDivElement}
  */
-function generateSimpleCard(title, text) {
+function generateSimpleCard(cardData) {
     const card = document.createElement("div");
     const heading = document.createElement("h3");
     const content = document.createElement("p");
 
-    heading.innerText = title;
-    content.innerText = text;
+    heading.innerText = cardData.heading;
+    content.innerText = cardData.content;
 
     card.appendChild(heading);
     card.appendChild(content);
@@ -63,18 +72,17 @@ function generateSimpleCard(title, text) {
 
 /**
  * generates card with heading and unordered list
- * @param {string} title
- * @param list {array.<string>}
+ * @param {ComplexCard} cardData
  * @returns {HTMLDivElement}
  */
-function generateComplexCard(title, list) {
+function generateComplexCard(cardData) {
     const card = document.createElement("div");
     const heading = document.createElement("h3");
     const unorderedList= document.createElement("ul");
 
-    heading.innerText = title;
+    heading.innerText = cardData.heading;
 
-    for (const item of list) {
+    for (const item of cardData.elements) {
         const listItem = document.createElement("li");
         listItem.innerText = item;
 
@@ -95,10 +103,10 @@ function generatePageContent() {
     const cards = [];
 
     for (const data of simpleCardData) {
-        cards.push(generateSimpleCard(data.heading, data.content))
+        cards.push(generateSimpleCard(data))
     }
 
-    cards.push(generateComplexCard(complexCardData.heading, complexCardData.elements));
+    cards.push(generateComplexCard(complexCardData));
 
     cards.forEach(card => card.classList.add("home-card"));
 
