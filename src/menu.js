@@ -71,6 +71,7 @@ function generateMenuCard(cardData) {
     heading.textContent = cardData.name;
     desc.textContent = cardData.description;
     priceTag.textContent = cardData.price + "$";
+
     priceTag.setAttribute("class", "price-tag");
     desc.setAttribute("class", "description");
 
@@ -93,7 +94,7 @@ function generatePageContent() {
         cards.push(generateMenuCard(data));
     }
 
-    cards.forEach(card => card.classList.add("menu-card"));
+    cards.forEach(card => card.setAttribute("class", "menu-card"));
 
     return cards;
 }

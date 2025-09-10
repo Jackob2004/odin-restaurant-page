@@ -37,6 +37,7 @@ function generateContactCard(data) {
     email.textContent = data.email;
 
     card.append(heading, desc, phone, email);
+
     card.setAttribute("class", "contact-card");
 
     return card;
