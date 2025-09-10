@@ -3,6 +3,8 @@
     --pallete-rust: #A0522D;
     --pallete-cream: #F5F5DC;
     --pallete-brown: #8B4513;
+
+    --card-opacity: 0.85;
 }
 
 body {
@@ -23,7 +25,7 @@ header {
     padding: 1rem;
     background-color: var(--pallete-gray);
     color: var(--pallete-cream);
-    opacity: 0.85;
+    opacity: var(--card-opacity);
     border-radius: 25% 10%;
 }
 
@@ -78,7 +80,7 @@ button:hover {
     padding: 2rem;
     background-color: var(--pallete-brown);
     color: var(--pallete-cream);
-    opacity: 0.85;
+    opacity: var(--card-opacity);
     border-radius: 10px 100px / 120px;
 }
 
@@ -87,11 +89,13 @@ button:hover {
 }
 
 .content-menu {
+    --gap: 2rem;
+
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2rem;
+    gap: var(--gap);
 
-    padding: 2rem;
+    padding: var(--gap);
     margin: auto;
     width: 80%;
 }
@@ -110,14 +114,16 @@ button:hover {
 }
 
 .menu-card div:last-child {
+    --gap: 1rem;
+
     display: grid;
     grid-template-columns: 1fr min-content;
-    gap: 1rem;
+    gap: var(--gap);
 
-    padding: 1rem;
+    padding: var(--gap);
     background-color: var(--pallete-cream);
     color: var(--pallete-rust);
-    opacity: 0.85;
+    opacity: var(--card-opacity);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -145,15 +151,17 @@ button:hover {
 }
 
 .contact-card {
+    --gap: 1rem;
+
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--gap);
     justify-content: center;
     align-items: center;
 
-    padding: 1rem;
+    padding: var(--gap);
     background-color: var(--pallete-brown);
     color: var(--pallete-cream);
-    opacity: 0.85;
+    opacity: var(--card-opacity);
     border-radius: 10% 30% 50% 70%;
 }
