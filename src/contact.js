@@ -1,8 +1,16 @@
 const styleClassName = "content-contact";
 
 /**
+ * @typedef {Object} ContactData
+ * @property {string} heading
+ * @property {string} description
+ * @property {string} phone
+ * @property {string} email
+ */
+
+/**
  *
- * @type {{heading: string, description: string, phone: string, email: string}}
+ * @type ContactData
  */
 const contactData = {
     heading: "Get in Touch!",
@@ -13,25 +21,33 @@ const contactData = {
 };
 
 /**
- *
- * @returns {HTMLDivElement[]}
+ * @param {ContactData} data
+ * @returns {HTMLDivElement}
  */
-function generatePageContent() {
+function generateContactCard(data) {
     const card = document.createElement("div");
     const heading = document.createElement("h3");
     const desc = document.createElement("p");
     const phone = document.createElement("p");
     const email = document.createElement("p");
 
-    heading.textContent = contactData.heading;
-    desc.textContent = contactData.description;
-    phone.textContent =  contactData.phone;
-    email.textContent =  contactData.email;
+    heading.textContent = data.heading;
+    desc.textContent = data.description;
+    phone.textContent = data.phone;
+    email.textContent = data.email;
 
     card.append(heading, desc, phone, email);
     card.setAttribute("class", "contact-card");
 
-    return [card];
+    return card;
+}
+
+/**
+ *
+ * @returns {HTMLDivElement[]}
+ */
+function generatePageContent() {
+    return [generateContactCard(contactData)];
 }
 
 export {generatePageContent, styleClassName};
