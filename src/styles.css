@@ -86,5 +86,33 @@ button:hover {
     list-style: none;
 }
 
+.content-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+
+    padding: 2rem;
+    margin: auto;
+    width: 80%;
+}
+
 .menu-card {
+    display: grid;
+    grid-template-rows: 300px 1fr;
+
+}
+
+.menu-card div:first-child img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    margin: auto;
+}
+
+.menu-card div:last-child {
+    display: grid;
+
+    background-color: var(--pallete-cream);
+    color: var(--pallete-rust);
+    opacity: 0.85;
 }

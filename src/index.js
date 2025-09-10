@@ -9,11 +9,13 @@ window.addEventListener("load", () => {
     home.generatePageContent().forEach(card => contentContainer.appendChild(card));
 });
 
-document.querySelector("nav").addEventListener("click", (e) => {
+document.querySelector("nav").addEventListener("click", swapPageContent);
+
+function swapPageContent(event) {
     let nodes= null;
     let className = null;
 
-    switch (e.target.id) {
+    switch (event.target.id) {
         case "btn-home":
             nodes = home.generatePageContent();
             className = home.styleClassName;
@@ -28,4 +30,4 @@ document.querySelector("nav").addEventListener("click", (e) => {
         contentContainer.replaceChildren(...nodes);
         contentContainer.setAttribute("class", className);
     }
-});
+}

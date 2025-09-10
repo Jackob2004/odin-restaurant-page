@@ -53,6 +53,7 @@ const menuCardsData = [
  */
 function generateMenuCard(imgPath, name, description, price) {
     const card = document.createElement("div");
+    const imgWrapper = document.createElement("div");
     const img = document.createElement("img");
 
     const contentWrapper = document.createElement("div");
@@ -66,8 +67,9 @@ function generateMenuCard(imgPath, name, description, price) {
     desc.textContent = description;
     priceTag.textContent = price;
 
+    imgWrapper.appendChild(img);
     contentWrapper.append(heading, desc, priceTag);
-    card.appendChild(img)
+    card.appendChild(imgWrapper);
     card.appendChild(contentWrapper);
 
     return card;
